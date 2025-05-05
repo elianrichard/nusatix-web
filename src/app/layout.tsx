@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Philosopher } from "next/font/google";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -9,16 +10,26 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const geist = Geist({
+const philosopher = Philosopher({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  variable: "--font-philosopher-serif",
+  weight: ["400", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter-sans",
+  style: ["normal", "italic"],
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
+    <html
+      lang="en"
+      className={`${philosopher.variable} ${inter.variable} font-sans`}
+    >
       <body>{children}</body>
     </html>
   );
