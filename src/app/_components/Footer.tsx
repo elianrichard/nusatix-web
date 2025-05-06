@@ -10,10 +10,10 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white">
       <MainLayout isDisableVerticalPadding className="py-10">
-        <div className="flex items-end justify-between">
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col items-start gap-12">
-            <NusatixLogoFull className="h-16" />
-            <div className="grid grid-flow-col grid-rows-3 gap-x-36 gap-y-6">
+            <NusatixLogoFull className="w-full max-w-72" />
+            <div className="grid grid-cols-1 gap-x-36 gap-y-6 text-lg sm:grid-flow-col sm:grid-rows-3">
               {FooterLinks.map((link, index) => (
                 <Link href={link.href} key={`${link.href}-${index}`}>
                   {link.label}
@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-5">
             <p className="font-white text-lg font-bold">Connect with us</p>
-            <div className="flex justify-end gap-3">
+            <div className="flex gap-3 md:justify-end">
               {SocialMediaLinks.map((link, index) => (
                 <Link
                   href={link.href}
