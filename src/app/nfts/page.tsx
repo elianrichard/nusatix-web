@@ -1,4 +1,6 @@
+import MainLayout from "@/components/MainLayout";
+
 const NftsPage = () => {
-  return <div>NftsPage</div>;
+  return <MainLayout isAddTopPadding>NftsPage</MainLayout>;
 };
 export default NftsPage;

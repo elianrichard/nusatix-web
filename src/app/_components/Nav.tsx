@@ -10,15 +10,22 @@ import HamburgerIcon from "@/components/HamburgerIcon";
 import MainLayout from "@/components/MainLayout";
 
 import { cn } from "@/utils/ui";
-import { NavLinks } from "../_static/constants";
+import { NavigationRoutes, NavLinks } from "../_static/constants";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className={cn("relative z-0", isOpen && "nav-open")}>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 z-0 w-screen max-w-full bg-white",
+        isOpen && "nav-open",
+      )}
+    >
       <MainLayout isDisableVerticalPadding>
         <div className="flex h-24 items-center justify-between md:h-28">
-          <NusatixLogoFull className="text-primary h-10" />
+          <Link href={NavigationRoutes.HOME}>
+            <NusatixLogoFull className="text-primary h-10" />
+          </Link>
           <ul className="hidden gap-8 text-lg md:flex lg:gap-16">
             {NavLinks.map((link) => (
               <NavLinkItem

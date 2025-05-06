@@ -1,4 +1,6 @@
-const TicketsPage = () => {
-  return <div>TicketsPage</div>;
+import MainLayout from "@/components/MainLayout";
+
+const ActiveTicketsPage = () => {
+  return <MainLayout isAddTopPadding>ActiveTicketsPage</MainLayout>;
 };
-export default TicketsPage;
+export default ActiveTicketsPage;
