@@ -2,4 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 bunx pretty-quick --staged
-bunx run lint
+bun run lint
