@@ -1,4 +1,3 @@
-import type { TWeb3Account } from "@/store/useWeb3Store";
 import {
   BrowserProvider,
   formatUnits,
@@ -9,6 +8,7 @@ import {
   type BaseContract,
 } from "ethers";
 import ABI from "@/static/constants/Tix.json";
+import type { TWeb3Account } from "@/store/useWeb3Store";
 
 interface TixContract extends BaseContract {
   payToMint(
