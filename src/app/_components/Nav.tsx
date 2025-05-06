@@ -9,30 +9,21 @@ import Button from "@/components/Button";
 import MainLayout from "@/components/MainLayout";
 
 import { cn } from "@/utils/ui";
+import { NavLinks } from "../_static/constants";
 
 const Nav = () => {
-  const links = [
-    {
-      href: "/",
-      label: "Home",
-    },
-    {
-      href: "/tickets",
-      label: "Active Tickets",
-    },
-    {
-      href: "/nfts",
-      label: "NFTs",
-    },
-  ];
   return (
     <nav>
       <MainLayout isDisableVerticalPadding>
         <div className="flex items-center justify-between py-6">
           <NusatixLogoFull className="text-primary h-10" />
           <ul className="flex gap-16 text-lg">
-            {links.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+            {NavLinks.map((link) => (
+              <NavLinkItem
+                key={link.href}
+                href={link.href}
+                label={link.label}
+              />
             ))}
           </ul>
           <Button>Connect Wallet</Button>
@@ -43,7 +34,7 @@ const Nav = () => {
 };
 export default Nav;
 
-const NavLink = ({ href, label }: { href: string; label: string }) => {
+const NavLinkItem = ({ href, label }: { href: string; label: string }) => {
   const pathname = usePathname();
   const isActive = useMemo(() => {
     if (href === "/") {
