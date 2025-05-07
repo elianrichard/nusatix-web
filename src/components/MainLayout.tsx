@@ -34,7 +34,7 @@ const MainLayout = forwardRef<HTMLDivElement, MainLayoutProps>(
         className={cn(
           "h-full w-full",
           backgroundColor,
-          isAddTopPadding && "pt-16 md:pt-20",
+          isAddTopPadding && "pt-24 md:pt-28",
           isOverflowHidden && "overflow-hidden",
           className,
         )}

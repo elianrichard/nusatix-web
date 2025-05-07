@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -9,20 +11,20 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-5 md:p-0"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-white/50 p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white p-9 rounded-2xl max-w-md w-full relative shadow-xl border border-primary"
+        className="border-primary relative flex w-full max-w-md flex-col gap-2 rounded-2xl border bg-white p-4 shadow-xl md:p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-primary hover:text-black text-3xl transition-colors" 
+          className="text-primary self-end transition-colors duration-200 ease-out hover:text-black"
         >
-          &times;
+          <X className="aspect-square h-6 w-6 md:h-8 md:w-8" />
         </button>
-        {children}
+        <div>{children}</div>
       </div>
     </div>
   );

@@ -4,6 +4,10 @@ import { type Metadata } from "next";
 import { Philosopher } from "next/font/google";
 import { Inter } from "next/font/google";
 
+import Footer from "./_components/Footer";
+import Nav from "./_components/Nav";
+import Providers from "./_components/Providers";
+
 export const metadata: Metadata = {
   title: "Nusatix",
   description: "Explore. Earn. Belong.",
@@ -30,7 +34,13 @@ export default function RootLayout({
       lang="en"
       className={`${philosopher.variable} ${inter.variable} font-sans`}
     >
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }
