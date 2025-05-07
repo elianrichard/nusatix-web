@@ -34,8 +34,8 @@ const FeaturesSection = ({ title }: { title?: React.ReactNode }) => {
           )}
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+          {features.map((feature) => (
+            <FeatureCard key={feature.title} {...feature} />
           ))}
         </div>
       </div>
