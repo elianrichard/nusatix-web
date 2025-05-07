@@ -57,8 +57,8 @@ const EventsSection = () => {
           Experience Indonesia, <span className="text-primary">Locally</span>
         </h2>
         <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2">
-          {events.map((event, index) => (
-            <EventCard key={index} {...event} />
+          {events.map((event) => (
+            <EventCard key={event.title} {...event} />
           ))}
         </div>
         <Button variant="secondary">Show All Events</Button>
