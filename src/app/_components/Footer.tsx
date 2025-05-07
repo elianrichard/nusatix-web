@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import NusatixLogoFull from "@/assets/svgs/NusatixLogoFull";
+import NusatixLogoFull from "@/assets/svgs/brand/NusatixLogoFull";
 
 import MainLayout from "@/components/MainLayout";
 
