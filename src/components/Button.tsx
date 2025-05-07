@@ -12,7 +12,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonStyles = {
       primary: "bg-primary text-white hover:bg-primary-shadow",
       secondary:
-        "bg-white text-primary border border-primary hover:bg-primary/10",
+        "bg-white text-primary border border-primary hover:bg-primary/10 px-16",
     } as Record<ButtonVariants, string>;
 
     return (

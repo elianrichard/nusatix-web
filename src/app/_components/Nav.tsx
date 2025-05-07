@@ -17,7 +17,7 @@ const Nav = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 z-0 w-screen max-w-full bg-white",
+        "fixed top-0 left-0 z-50 w-screen max-w-full bg-white",
         isOpen && "nav-open",
       )}
     >

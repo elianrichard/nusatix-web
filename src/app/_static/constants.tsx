@@ -3,8 +3,8 @@ import type { TNavigationLinks } from "./types";
 
 export const NavigationRoutes = {
   HOME: "/",
-  ACTIVE_TICKETS: "/active-tickets",
-  NFTS: "/nfts",
+  ACTIVE_TICKETS: "/my-ticket",
+  NFTS: "/my-nft",
   EMPTY: "#",
 } as const;
 
