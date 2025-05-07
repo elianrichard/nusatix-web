@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import NusatixLogoFull from "@/assets/svgs/NusatixLogoFull";
+import NusatixLogoFull from "@/assets/svgs/brand/NusatixLogoFull";
 
 import Button from "@/components/Button";
 import HamburgerIcon from "@/components/HamburgerIcon";
