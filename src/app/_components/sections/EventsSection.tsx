@@ -99,7 +99,7 @@ const EventCard = ({
         className="h-full w-full object-cover"
       />
     </div>
-    <div className="flex flex-col gap-4 p-6 md:p-8">
+    <div className="flex flex-col gap-4 p-4 md:p-8">
       <div className="flex flex-col gap-1 md:gap-2">
         <p className="text-p text-primary font-bold">{type}</p>
         <p className="text-h2 font-bold">{title}</p>
@@ -119,8 +119,10 @@ const EventCard = ({
         </div>
       </div>
       <div className="flex items-end gap-2 self-end text-right">
-        <p className="text-p text-black/80">Floor Price:</p>
-        <p className="text-primary text-h2 font-bold">{price} SOL</p>
+        <p className="text-p leading-none text-black/80">Floor Price:</p>
+        <p className="text-primary text-h2 leading-none font-bold">
+          {price} SOL
+        </p>
       </div>
     </div>
   </Link>

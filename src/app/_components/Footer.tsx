@@ -30,7 +30,7 @@ const Footer = () => {
                   key={`${link.href}-${index}`}
                   target="_blank"
                   aria-label={link.name}
-                  className="bg-primary-shadow aspect-square w-14 rounded-[20px] p-3"
+                  className="bg-primary-shadow h-14 w-14 rounded-[20px] p-3"
                 >
                   {link.icon}
                 </Link>
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
         <div className="mt-12 flex flex-col items-center gap-7">
           <div className="h-[1px] w-full bg-white" />
-          <p className="text-xl">Nusatix &copy;2025</p>
+          <p className="text-h3">Nusatix &copy;2025</p>
         </div>
       </MainLayout>
     </footer>
