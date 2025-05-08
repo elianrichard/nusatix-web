@@ -12,6 +12,7 @@
   --color-primary-shadow: #662020;
   --color-disabled: #9e9e9e;
   --color-gray: #e0e0e0;
+  --breakpoint-xs: 360px;
 }
 
 @layer base {

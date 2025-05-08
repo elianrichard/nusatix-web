@@ -41,7 +41,7 @@ export default function MyNFT() {
             My Collections
           </h1>
           {nftData.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
+            <div className="xs:grid-cols-2 grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
               {nftData.map((nft, index) => (
                 <div
                   key={index}

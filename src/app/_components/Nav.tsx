@@ -23,7 +23,7 @@ const Nav = () => {
     >
       <MainLayout isDisableVerticalPadding>
         <div className="flex h-24 items-center justify-between md:h-28">
-          <Link href={NavigationRoutes.HOME}>
+          <Link href={NavigationRoutes.HOME} onClick={() => setIsOpen(false)}>
             <NusatixLogoFull className="text-primary h-10" />
           </Link>
           <ul className="hidden gap-8 text-lg md:flex lg:gap-16">
@@ -48,7 +48,7 @@ const Nav = () => {
 
       <div
         className={cn(
-          "gap-lg text-blue absolute top-0 left-0 -z-10 flex h-screen w-full flex-col items-center bg-white pt-24 transition-opacity duration-200 ease-out md:hidden md:pt-28",
+          "gap-lg text-blue absolute top-0 left-0 -z-10 flex h-screen w-full flex-col items-center bg-white pt-24 transition-opacity duration-300 ease-out md:hidden md:pt-28",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
