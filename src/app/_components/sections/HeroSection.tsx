@@ -1,5 +1,5 @@
+import NusatixLogoText from "@/assets/svgs/brand/NusatixLogoText";
 import NusatixWing from "@/assets/svgs/brand/NusatixWing";
-import NusatixLogoText from "@/assets/svgs/NusatixLogoText";
 import MainLayout from "@/components/MainLayout";
 
 const HeroSection = () => {
