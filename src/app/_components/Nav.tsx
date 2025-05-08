@@ -9,8 +9,11 @@ import Button from "@/components/Button";
 import HamburgerIcon from "@/components/HamburgerIcon";
 import MainLayout from "@/components/MainLayout";
 
+import { NavigationRoutes } from "@/static/constants/navigation";
+
 import { cn } from "@/utils/ui";
-import { NavigationRoutes, NavLinks } from "../_static/constants";
+
+import { NavLinks } from "../_static/constants";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +26,7 @@ const Nav = () => {
     >
       <MainLayout isDisableVerticalPadding>
         <div className="flex h-24 items-center justify-between md:h-28">
-          <Link href={NavigationRoutes.HOME}>
+          <Link href={NavigationRoutes.HOME} onClick={() => setIsOpen(false)}>
             <NusatixLogoFull className="text-primary h-10" />
           </Link>
           <ul className="hidden gap-8 text-lg md:flex lg:gap-16">
@@ -48,7 +51,7 @@ const Nav = () => {
 
       <div
         className={cn(
-          "gap-lg text-blue absolute top-0 left-0 -z-10 flex h-screen w-full flex-col items-center bg-white pt-24 transition-opacity duration-200 ease-out md:hidden md:pt-28",
+          "gap-lg text-blue absolute top-0 left-0 -z-10 flex h-screen w-full flex-col items-center bg-white pt-24 transition-opacity duration-300 ease-out md:hidden md:pt-28",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
@@ -96,7 +99,7 @@ const NavLinkItem = ({
   return (
     <li
       className={cn(
-        "text-black transition-colors duration-300 ease-out",
+        "hover:text-primary text-black transition-colors duration-300 ease-out",
         isActive && "text-primary font-bold",
         className,
       )}

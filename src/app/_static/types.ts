@@ -1,6 +1,21 @@
-import type { NavigationRoutes } from "./constants";
+import type { StaticImageData } from "next/image";
 
 export type TNavigationLinks = {
-  href: (typeof NavigationRoutes)[keyof typeof NavigationRoutes];
+  href: string;
   label: string;
 }[];
+
+export type EventItem = {
+  image: StaticImageData | string;
+  type: string;
+  title: string;
+  address: string;
+  date: string;
+  startDate: string;
+  endDate: string;
+  time: string;
+  price: number;
+  id: number;
+  idrPrice: number;
+  description: string;
+};
