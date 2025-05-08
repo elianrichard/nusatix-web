@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { NavigationRoutes } from "@/app/_static/constants";
 import MainLayout from "@/components/MainLayout";
+import { NavigationRoutes } from "@/static/constants/navigation";
 
 const Breadcrumbs = ({ id }: { id: string }) => {
   const pathname = usePathname();

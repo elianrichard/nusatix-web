@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { NavigationRoutes } from "@/app/_static/constants";
 import type { EventCardProps } from "@/app/_static/types";
 
 import { CalendarIcon, MarkerIcon, QuarterIcon } from "@/assets/svgs/icons";
@@ -10,6 +9,7 @@ import Button from "@/components/Button";
 import MainLayout from "@/components/MainLayout";
 
 import { events } from "@/static/constants/events";
+import { NavigationRoutes } from "@/static/constants/navigation";
 
 const EventsSection = () => {
   return (

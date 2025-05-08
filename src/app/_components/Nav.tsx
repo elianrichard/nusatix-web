@@ -9,8 +9,11 @@ import Button from "@/components/Button";
 import HamburgerIcon from "@/components/HamburgerIcon";
 import MainLayout from "@/components/MainLayout";
 
+import { NavigationRoutes } from "@/static/constants/navigation";
+
 import { cn } from "@/utils/ui";
-import { NavigationRoutes, NavLinks } from "../_static/constants";
+
+import { NavLinks } from "../_static/constants";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);

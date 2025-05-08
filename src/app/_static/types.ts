@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import type { NavigationRoutes } from "./constants";
+import type { NavigationRoutes } from "@/static/constants/navigation";
 
 export type TNavigationLinks = {
   href: (typeof NavigationRoutes)[keyof typeof NavigationRoutes];

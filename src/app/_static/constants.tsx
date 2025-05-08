@@ -1,13 +1,6 @@
 import { InstagramLogo, TwitterLogo } from "@/assets/svgs/icons";
+import { NavigationRoutes } from "@/static/constants/navigation";
 import type { TNavigationLinks } from "./types";
-
-export const NavigationRoutes = {
-  HOME: "/",
-  ACTIVE_TICKETS: "/my-ticket",
-  NFTS: "/my-nft",
-  EVENTS: "/events",
-  EMPTY: "#",
-} as const;
 
 export const NavLinks: TNavigationLinks = [
   {

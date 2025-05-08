@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 
-import { NavigationRoutes } from "@/app/_static/constants";
 import MainLayout from "@/components/MainLayout";
 import { eventFeatures } from "@/components/sections/_static/constants";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 
 import { events } from "@/static/constants/events";
+import { NavigationRoutes } from "@/static/constants/navigation";
 import EventDetail from "./_components/EventDetail";
 
 const EventDetailPage = async ({
