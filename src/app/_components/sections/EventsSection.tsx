@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { EventCardProps } from "@/app/_static/types";
+import type { EventItem } from "@/app/_static/types";
 
 import { CalendarIcon, MarkerIcon, QuarterIcon } from "@/assets/svgs/icons";
 
@@ -39,7 +39,7 @@ const EventCard = ({
   time,
   price,
   id,
-}: EventCardProps) => (
+}: EventItem) => (
   <Link
     href={`${NavigationRoutes.EVENTS}/${id}`}
     className="border-gray hover:bg-primary/10 flex w-full flex-col overflow-hidden rounded-2xl border bg-white transition-colors duration-200 ease-out"

@@ -5,12 +5,14 @@ export type TNavigationLinks = {
   label: string;
 }[];
 
-export type EventCardProps = {
+export type EventItem = {
   image: StaticImageData | string;
   type: string;
   title: string;
   address: string;
   date: string;
+  startDate: string;
+  endDate: string;
   time: string;
   price: number;
   id: number;

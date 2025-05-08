@@ -18,7 +18,7 @@ const FeaturesSection = ({
             </>
           )}
         </h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
+        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
           {features.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}
