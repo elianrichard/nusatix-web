@@ -15,7 +15,7 @@ export default function TicketCard({ type, onClick }: Props) {
   return (
     <div
       onClick={onClick}
-      className="group bg-primary border-primary flex w-full cursor-pointer flex-col justify-between gap-16 rounded-2xl border p-5 transition duration-200 ease-out hover:bg-white md:flex-row md:gap-0 md:p-10"
+      className="group bg-primary border-primary flex w-full cursor-pointer flex-col justify-between gap-16 rounded-2xl border p-4 transition duration-200 ease-out hover:bg-white md:flex-row md:gap-0 md:p-10"
     >
       <div className="flex flex-col justify-center gap-6">
         <div className="flex flex-col gap-2 md:gap-3">
