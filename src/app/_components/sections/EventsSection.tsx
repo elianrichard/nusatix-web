@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { NavigationRoutes } from "@/app/_static/constants";
 import type { EventCardProps } from "@/app/_static/types";
 
 import { CalendarIcon, MarkerIcon, QuarterIcon } from "@/assets/svgs/icons";
@@ -37,9 +38,10 @@ const EventCard = ({
   date,
   time,
   price,
+  id,
 }: EventCardProps) => (
   <Link
-    href="#"
+    href={`${NavigationRoutes.EVENTS}/${id}`}
     className="border-gray hover:bg-primary/10 flex w-full flex-col overflow-hidden rounded-2xl border bg-white transition-colors duration-200 ease-out"
   >
     <div className="relative aspect-[3/2] w-full md:aspect-video">
@@ -58,11 +60,11 @@ const EventCard = ({
       <div className="flex flex-1 flex-col justify-between gap-4">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 md:gap-4">
-            <CalendarIcon className="text-primary w-5" />
+            <MarkerIcon className="text-primary w-5" />
             <p className="text-p flex-1 text-black/80">{address}</p>
           </div>
           <div className="flex items-center gap-2 md:gap-4">
-            <MarkerIcon className="text-primary w-5" />
+            <CalendarIcon className="text-primary w-5" />
             <p className="text-p flex-1 text-black/80">{date}</p>
           </div>
           <div className="flex items-center gap-2 md:gap-4">

@@ -14,4 +14,6 @@ export type EventCardProps = {
   date: string;
   time: string;
   price: number;
+  id: number;
+  description: string;
 };

@@ -1,3 +1,4 @@
+import { homeFeatures } from "@/components/sections/_static/constants";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 
 import EventsSection from "./_components/sections/EventsSection";
@@ -9,7 +10,7 @@ export default function HomePage() {
     <>
       <TopSection />
       <HeroSection />
-      <FeaturesSection />
+      <FeaturesSection features={homeFeatures} />
       <EventsSection />
     </>
   );

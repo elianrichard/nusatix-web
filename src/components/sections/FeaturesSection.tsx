@@ -1,28 +1,13 @@
-import FeatureIcon1 from "@/assets/svgs/icons/features/FeatureIcon1";
-import FeatureIcon2 from "@/assets/svgs/icons/features/FeatureIcon2";
-import FeatureIcon3 from "@/assets/svgs/icons/features/FeatureIcon3";
-
+import type { FeatureCardProps } from "./_static/types";
 import MainLayout from "../MainLayout";
 
-const FeaturesSection = ({ title }: { title?: React.ReactNode }) => {
-  const features: FeatureCardProps[] = [
-    {
-      icon: <FeatureIcon1 />,
-      title: "Prevent Fraud",
-      description: "Prevent fraud with Soulbound Ticket Tokens.",
-    },
-    {
-      icon: <FeatureIcon2 />,
-      title: "Indonesian NFTs",
-      description: "Get unique NFT based on local place you visit in Indonesia",
-    },
-    {
-      icon: <FeatureIcon3 />,
-      title: "Make it Really Better",
-      description:
-        "Give organizers and places insightful, real attendance data",
-    },
-  ];
+const FeaturesSection = ({
+  title,
+  features,
+}: {
+  title?: React.ReactNode;
+  features: FeatureCardProps[];
+}) => {
   return (
     <MainLayout>
       <div className="flex flex-col items-center gap-6 md:gap-8">
@@ -43,12 +28,6 @@ const FeaturesSection = ({ title }: { title?: React.ReactNode }) => {
   );
 };
 export default FeaturesSection;
-
-type FeatureCardProps = {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-};
 
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => (
   <div className="border-primary/20 hover:bg-primary/10 flex flex-col items-center justify-start gap-4 rounded-2xl border bg-white p-6 text-center transition-colors duration-200 ease-out md:p-8">

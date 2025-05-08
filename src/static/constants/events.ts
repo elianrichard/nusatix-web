@@ -7,6 +7,7 @@ import EventImage4 from "@/assets/images/EventImage4.webp";
 
 export const events: EventCardProps[] = [
   {
+    id: 1,
     image: EventImage2,
     type: "Events",
     title: "Musical Concert Petualangan Sherina",
@@ -14,8 +15,14 @@ export const events: EventCardProps[] = [
     date: "15-28 July 2025",
     time: "19.30 - 22.00",
     price: 0.3,
+    description: `Step into the spiritual heart of Bali with Tari Kecak, a mesmerizing traditional performance unlike any other. Set against the dramatic cliffs of Pura Uluwatu and framed by a glowing sunset, this sacred fire dance combines myth, rhythm, and raw energy in a spectacle that has captivated audiences from around the world.
+
+Performed by a circle of over 50 bare-chested men chanting “cak-cak-cak” in hypnotic harmony, the dance tells the ancient Ramayana epic — a tale of love, bravery, and divine power. With no musical instruments, the only sound you'll hear is the rising chant of the performers, the crackling of flames, and the crashing of waves below the cliffside stage.
+
+This hour-long performance isn't just a show — it's a spiritual and cultural journey. The flames, the masks, and the synchronized movement reflect centuries of Balinese storytelling passed down through generations. As darkness falls, the fire intensifies, illuminating a breathtaking moment of connection between performer, tradition, and audience.`,
   },
   {
+    id: 2,
     image: EventImage1,
     type: "Local Tourism Place",
     title: "Tari Kecak",
@@ -23,8 +30,14 @@ export const events: EventCardProps[] = [
     date: "6-8 June 2025",
     time: "16.00 - 22.00",
     price: 0.1,
+    description: `Step into the spiritual heart of Bali with Tari Kecak, a mesmerizing traditional performance unlike any other. Set against the dramatic cliffs of Pura Uluwatu and framed by a glowing sunset, this sacred fire dance combines myth, rhythm, and raw energy in a spectacle that has captivated audiences from around the world.
+
+Performed by a circle of over 50 bare-chested men chanting “cak-cak-cak” in hypnotic harmony, the dance tells the ancient Ramayana epic — a tale of love, bravery, and divine power. With no musical instruments, the only sound you'll hear is the rising chant of the performers, the crackling of flames, and the crashing of waves below the cliffside stage.
+
+This hour-long performance isn't just a show — it's a spiritual and cultural journey. The flames, the masks, and the synchronized movement reflect centuries of Balinese storytelling passed down through generations. As darkness falls, the fire intensifies, illuminating a breathtaking moment of connection between performer, tradition, and audience.`,
   },
   {
+    id: 3,
     image: EventImage3,
     type: "Events",
     title: "Raminten Cabaret",
@@ -32,9 +45,14 @@ export const events: EventCardProps[] = [
     date: "28 August 2025",
     time: "19.00 - 22.00",
     price: 0.2,
-  },
+    description: `Step into the spiritual heart of Bali with Tari Kecak, a mesmerizing traditional performance unlike any other. Set against the dramatic cliffs of Pura Uluwatu and framed by a glowing sunset, this sacred fire dance combines myth, rhythm, and raw energy in a spectacle that has captivated audiences from around the world.
 
+Performed by a circle of over 50 bare-chested men chanting “cak-cak-cak” in hypnotic harmony, the dance tells the ancient Ramayana epic — a tale of love, bravery, and divine power. With no musical instruments, the only sound you'll hear is the rising chant of the performers, the crackling of flames, and the crashing of waves below the cliffside stage.
+
+This hour-long performance isn't just a show — it's a spiritual and cultural journey. The flames, the masks, and the synchronized movement reflect centuries of Balinese storytelling passed down through generations. As darkness falls, the fire intensifies, illuminating a breathtaking moment of connection between performer, tradition, and audience.`,
+  },
   {
+    id: 4,
     image: EventImage4,
     type: "Local Tourism Place",
     title: "Tari Kecak",
@@ -42,5 +60,10 @@ export const events: EventCardProps[] = [
     date: "6-8 June 2025",
     time: "16.00 - 22.00",
     price: 0.1,
+    description: `Step into the spiritual heart of Bali with Tari Kecak, a mesmerizing traditional performance unlike any other. Set against the dramatic cliffs of Pura Uluwatu and framed by a glowing sunset, this sacred fire dance combines myth, rhythm, and raw energy in a spectacle that has captivated audiences from around the world.
+
+Performed by a circle of over 50 bare-chested men chanting “cak-cak-cak” in hypnotic harmony, the dance tells the ancient Ramayana epic — a tale of love, bravery, and divine power. With no musical instruments, the only sound you'll hear is the rising chant of the performers, the crackling of flames, and the crashing of waves below the cliffside stage.
+
+This hour-long performance isn't just a show — it's a spiritual and cultural journey. The flames, the masks, and the synchronized movement reflect centuries of Balinese storytelling passed down through generations. As darkness falls, the fire intensifies, illuminating a breathtaking moment of connection between performer, tradition, and audience.`,
   },
 ];
