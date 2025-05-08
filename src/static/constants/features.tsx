@@ -1,8 +1,9 @@
 import FeatureIcon1 from "@/assets/svgs/icons/features/FeatureIcon1";
 import FeatureIcon2 from "@/assets/svgs/icons/features/FeatureIcon2";
 import FeatureIcon3 from "@/assets/svgs/icons/features/FeatureIcon3";
+import FeatureIcon4 from "@/assets/svgs/icons/features/FeatureIcon4";
 
-import type { FeatureCardProps } from "./types";
+import type { FeatureCardProps } from "../../components/sections/_static/types";
 
 export const homeFeatures: FeatureCardProps[] = [
   {
@@ -35,7 +36,7 @@ export const eventFeatures: FeatureCardProps[] = [
       "Collect an exclusive Uluwatu Kecak NFT, only mintable if you attend.",
   },
   {
-    icon: <FeatureIcon3 />,
+    icon: <FeatureIcon4 />,
     title: "Proof of Presence",
     description: "Become part of a cultural legacy on-chain.",
   },

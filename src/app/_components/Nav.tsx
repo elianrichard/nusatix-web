@@ -99,7 +99,7 @@ const NavLinkItem = ({
   return (
     <li
       className={cn(
-        "text-black transition-colors duration-300 ease-out",
+        "hover:text-primary text-black transition-colors duration-300 ease-out",
         isActive && "text-primary font-bold",
         className,
       )}

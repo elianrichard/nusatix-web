@@ -1,5 +1,5 @@
-import { homeFeatures } from "@/components/sections/_static/constants";
 import FeaturesSection from "@/components/sections/FeaturesSection";
+import { homeFeatures } from "@/static/constants/features";
 
 import EventsSection from "./_components/sections/EventsSection";
 import HeroSection from "./_components/sections/HeroSection";

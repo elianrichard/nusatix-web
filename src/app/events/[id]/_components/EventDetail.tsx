@@ -1,17 +1,27 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import type { EventCardProps } from "@/app/_static/types";
 import { MarkerIcon, QuarterIcon, CalendarIcon } from "@/assets/svgs/icons";
 import Button from "@/components/Button";
+import { NavigationRoutes } from "@/static/constants/navigation";
+import { convertNumberToIdr } from "@/utils/string";
+
+type EventDetailProps = EventCardProps & {
+  isPaymentPage?: boolean;
+};
 
 const EventDetail = ({
+  id,
   image,
   title,
   address,
   date,
   time,
   price,
-}: EventCardProps) => (
+  idrPrice,
+  isPaymentPage,
+}: EventDetailProps) => (
   <div className="flex flex-col gap-10">
     <div className="relative aspect-[2/1] w-full">
       <Image
@@ -40,15 +50,20 @@ const EventDetail = ({
         </div>
       </div>
       <div className="flex flex-col gap-8 text-right">
-        <div className="flex items-center gap-4">
-          <Button>Buy {price} SOL</Button>
-          {/* <p className="text-primary text-h2 leading-none font-bold">
+        {!isPaymentPage ? (
+          <Link href={NavigationRoutes.PAYMENT(`${id}`)}>
+            <Button>Buy {price} SOL</Button>
+          </Link>
+        ) : (
+          <p className="text-primary text-h2 leading-none font-bold">
             {price} SOL
-          </p> */}
-        </div>
+          </p>
+        )}
         <div className="flex flex-col gap-1">
-          <p className="text-p text-black/80">Floor Price:</p>
-          <p className="text-p font-bold text-black">Rp243.000,00</p>
+          <p className="text-p text-black/50">Realtime in IDR</p>
+          <p className="text-p font-bold text-black">
+            {convertNumberToIdr(idrPrice)}
+          </p>
         </div>
       </div>
     </div>
