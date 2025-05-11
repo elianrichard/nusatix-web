@@ -1,11 +1,9 @@
 import type { events } from "@prisma/client";
 import axiosClient from "../client";
 
-type getEventsResponse = events[];
-
 export const getEvents = async () => {
   try {
-    const response = await axiosClient.get<getEventsResponse>(
+    const response = await axiosClient.get<events[]>(
       "/api/admin/events?active=true",
     );
     return response.data;

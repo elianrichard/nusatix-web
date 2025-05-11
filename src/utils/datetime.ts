@@ -2,12 +2,12 @@ import dayjs, { type Dayjs } from "dayjs";
 
 import CustomParseFormat from "dayjs/plugin/customParseFormat";
 
-const parseDate = (date: Date | null): Dayjs => {
+export const parseDate = (date: Date | null): Dayjs => {
   dayjs.extend(CustomParseFormat);
   return dayjs(date, "YYYY-MM-DD");
 };
 
-const parseTime = (time: Date | null): Dayjs => {
+export const parseTime = (time: Date | null): Dayjs => {
   dayjs.extend(CustomParseFormat);
   return dayjs(time, "HH:mm:ss");
 };

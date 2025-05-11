@@ -20,7 +20,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
         className={cn(
-          "shadow-primary-shadow cursor-pointer rounded-tl-sm rounded-tr-2xl rounded-br-sm rounded-bl-2xl py-3 font-serif text-base shadow-[3px_3px] transition-colors duration-200 ease-out sm:text-lg md:py-4 md:text-xl",
+          "shadow-primary-shadow disabled:bg-disabled disabled:shadow-disabled-shadow cursor-pointer rounded-tl-sm rounded-tr-2xl rounded-br-sm rounded-bl-2xl py-3 font-serif text-base shadow-[3px_3px] transition-colors duration-200 ease-out disabled:cursor-not-allowed sm:text-lg md:py-4 md:text-xl",
           buttonStyles[variant],
           className,
         )}

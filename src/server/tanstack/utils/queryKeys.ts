@@ -1,3 +1,4 @@
 export const QueryKeys = {
-  GET_EVENTS: ["events"],
+  EVENTS: ["events"],
+  SHOWS: ["shows"],
 };
