@@ -81,7 +81,6 @@ const EventCard = ({
     <div className="relative aspect-[3/2] w-full md:aspect-video">
       <Image
         src={event_image_url ?? ""}
-        // src={`https://${event_image_url?.replace("https://", "")}`}
         alt={"event"}
         fill
         className="h-full w-full object-cover"
