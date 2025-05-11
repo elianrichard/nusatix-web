@@ -18,9 +18,8 @@ To empower tourism, preserve heritage, and celebrate the diversity of Indonesia 
 - **Blockchain**: Solana
 - **Smart Contracts**: tolong isi ya @elian
 - **Frontend**: Next.js
-- **Wallet Integration**: tolong isi ya @elian 
+- **Wallet Integration**: tolong isi ya @elian
 - **NFT Metadata Storage**: tolong isi ya @elian
-
 
 ## 🚀 How It Works
 
@@ -36,6 +35,7 @@ To empower tourism, preserve heritage, and celebrate the diversity of Indonesia 
 ## 🔐 Soulbound Token Use
 
 Soulbound Tokens ensure:
+
 - **Authenticity**: Tickets can't be resold or transferred.
 - **Accountability**: Attendance and participation are verifiable.
 - **Identity Building**: Participation history forms a user's cultural journey on-chain.
