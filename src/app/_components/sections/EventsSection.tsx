@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,10 +21,13 @@ import { roundToDecimal } from "@/utils/string";
 import { cn } from "@/utils/ui";
 
 const EventsSection = () => {
+  const [isShowMore, setIsShowMore] = useState(false);
   const { data: events, isPending: isEventsPending } = useQuery({
     ...getEventsQueryOption(),
-    select: (events) => events.reverse().slice(0, 4),
+    select: (events) => events.reverse(),
   });
+
+  console.log(events);
   if (isEventsPending || !events) return null;
   return (
     <MainLayout>
@@ -34,15 +38,27 @@ const EventsSection = () => {
         <div
           className={cn(
             "grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10",
-            events.length > 3 &&
-              "[&>div:last-child]:block lg:[&>div:last-child]:hidden",
           )}
         >
-          {events.map((event, index) => (
-            <EventCard key={`${event.event_id}-${index}`} {...event} />
-          ))}
+          {events
+            .slice(0, !isShowMore ? 3 : events.length)
+            .map((event, index) => (
+              <div
+                key={`${event.event_id}-${index}`}
+                className={cn(
+                  "h-full w-full",
+                  !isShowMore && index > 2 ? "block md:hidden" : "block",
+                )}
+              >
+                <EventCard {...event} />
+              </div>
+            ))}
         </div>
-        <Button variant="secondary">Show All Events</Button>
+        {!isShowMore && (
+          <Button variant="secondary" onClick={() => setIsShowMore(true)}>
+            Show All Events
+          </Button>
+        )}
       </div>
     </MainLayout>
   );
@@ -62,7 +78,7 @@ const EventCard = ({
 }: events) => (
   <Link
     href={`${NavigationRoutes.EVENTS}/${event_id}`}
-    className="border-gray hover:bg-primary/10 flex w-full flex-col overflow-hidden rounded-2xl border bg-white transition-colors duration-200 ease-out"
+    className="border-gray hover:bg-primary/10 flex h-full w-full flex-col overflow-hidden rounded-2xl border bg-white transition-colors duration-200 ease-out"
   >
     <div className="relative aspect-[3/2] w-full md:aspect-video">
       <Image
