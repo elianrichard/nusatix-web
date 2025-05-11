@@ -1,1 +1,3 @@
-export const QueryKeys = {};
+export const QueryKeys = {
+  GET_EVENTS: ["events"],
+};
