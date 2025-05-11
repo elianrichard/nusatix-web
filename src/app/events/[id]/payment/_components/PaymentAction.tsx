@@ -2,26 +2,31 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
-
-import type { EventItem } from "@/app/_static/types";
 
 import NusatixLogo from "@/assets/svgs/brand/NusatixLogo";
 
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 
+import { getEventByIdQueryOption } from "@/server/tanstack/hooks/events";
 import { NavigationRoutes } from "@/static/constants/navigation";
 
 import ShowsCard from "./ShowsCard";
 
-const PaymentAction = ({ eventItem }: { eventItem: EventItem }) => {
+const PaymentAction = ({ id }: { id: string }) => {
   const [selectedShow, setSelectedShow] = useState<number>(1);
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
+  const { data: eventItem } = useQuery(getEventByIdQueryOption(id));
+  if (!eventItem) return null;
 
-  const { startDate, endDate } = eventItem;
-  const dateDistance = dayjs(endDate).diff(dayjs(startDate), "day");
+  const { event_overall_start_date, event_overall_end_date } = eventItem;
+  const dateDistance = dayjs(event_overall_end_date).diff(
+    dayjs(event_overall_start_date),
+    "day",
+  );
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-6">
@@ -34,7 +39,7 @@ const PaymentAction = ({ eventItem }: { eventItem: EventItem }) => {
                 key={index}
                 isSelected={selectedShow === index + 1}
                 setSelectedShow={setSelectedShow}
-                date={dayjs(startDate)
+                date={dayjs(event_overall_start_date)
                   .add(index, "day")
                   .format("MMMM, DD YYYY")}
               />

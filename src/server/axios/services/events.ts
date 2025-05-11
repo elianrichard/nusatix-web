@@ -14,3 +14,13 @@ export const getEvents = async () => {
     throw error;
   }
 };
+
+export const getEventById = async (id: string) => {
+  try {
+    const response = await axiosClient.get<events>(`/api/admin/events/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching event by ID:", error);
+    throw error;
+  }
+};

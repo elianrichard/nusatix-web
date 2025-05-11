@@ -26,8 +26,6 @@ const EventsSection = () => {
     ...getEventsQueryOption(),
     select: (events) => events.reverse(),
   });
-
-  console.log(events);
   if (isEventsPending || !events) return null;
   return (
     <MainLayout>
@@ -82,7 +80,8 @@ const EventCard = ({
   >
     <div className="relative aspect-[3/2] w-full md:aspect-video">
       <Image
-        src={`https://${event_image_url?.replace("https://", "")}`}
+        src={event_image_url ?? ""}
+        // src={`https://${event_image_url?.replace("https://", "")}`}
         alt={"event"}
         fill
         className="h-full w-full object-cover"
