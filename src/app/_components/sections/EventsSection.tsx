@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,8 +24,16 @@ const EventsSection = () => {
   const [isShowMore, setIsShowMore] = useState(false);
   const { data: events, isPending: isEventsPending } = useQuery({
     ...getEventsQueryOption(),
-    select: (events) => events.reverse(),
   });
+
+  const filteredEvents = useMemo(() => {
+    if (!events) return [];
+    if (isShowMore) return events.sort((a, b) => a.event_id - b.event_id);
+    return events
+      .sort((a, b) => a.event_id - b.event_id)
+      .filter((_, index) => index < 3);
+  }, [events, isShowMore]);
+
   if (isEventsPending || !events) return null;
   return (
     <MainLayout>
@@ -38,19 +46,11 @@ const EventsSection = () => {
             "grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10",
           )}
         >
-          {events
-            .slice(0, !isShowMore ? 3 : events.length)
-            .map((event, index) => (
-              <div
-                key={`${event.event_id}-${index}`}
-                className={cn(
-                  "h-full w-full",
-                  !isShowMore && index > 2 ? "block md:hidden" : "block",
-                )}
-              >
-                <EventCard {...event} />
-              </div>
-            ))}
+          {filteredEvents.map((event) => (
+            <div key={event.event_id} className="h-full w-full">
+              <EventCard {...event} />
+            </div>
+          ))}
         </div>
         {!isShowMore && (
           <Button variant="secondary" onClick={() => setIsShowMore(true)}>
