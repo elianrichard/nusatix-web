@@ -2,44 +2,46 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import dayjs from "dayjs";
-
-import type { EventItem } from "@/app/_static/types";
+import { useQuery } from "@tanstack/react-query";
 
 import NusatixLogo from "@/assets/svgs/brand/NusatixLogo";
 
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 
+import { getShowsByEventIdQueryOption } from "@/server/tanstack/hooks/shows";
 import { NavigationRoutes } from "@/static/constants/navigation";
+
+import { parseDate } from "@/utils/datetime";
 
 import ShowsCard from "./ShowsCard";
 
-const PaymentAction = ({ eventItem }: { eventItem: EventItem }) => {
-  const [selectedShow, setSelectedShow] = useState<number>(1);
+const PaymentAction = ({ id }: { id: string }) => {
+  const [selectedShowId, setSelectedShowId] = useState<number | null>(null);
+
+  const { data: shows, isPending: isShowsPending } = useQuery(
+    getShowsByEventIdQueryOption(id),
+  );
+
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
 
-  const { startDate, endDate } = eventItem;
-  const dateDistance = dayjs(endDate).diff(dayjs(startDate), "day");
+  if (isShowsPending || !shows) return null;
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-6">
         <p className="text-primary text-h2 font-bold">Available Schedule</p>
         <div className="flex flex-col gap-4">
-          {Array.from({ length: dateDistance > 0 ? dateDistance : 1 }).map(
-            (_, index) => (
-              <ShowsCard
-                index={index}
-                key={index}
-                isSelected={selectedShow === index + 1}
-                setSelectedShow={setSelectedShow}
-                date={dayjs(startDate)
-                  .add(index, "day")
-                  .format("MMMM, DD YYYY")}
-              />
-            ),
-          )}
+          {shows.map((show, index) => (
+            <ShowsCard
+              index={index}
+              key={show.show_id}
+              showId={show.show_id}
+              isSelected={selectedShowId == show.show_id}
+              setSelectedShow={setSelectedShowId}
+              date={parseDate(show.show_date).format("DD MMMM YYYY")}
+            />
+          ))}
         </div>
       </div>
       <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
@@ -52,7 +54,11 @@ const PaymentAction = ({ eventItem }: { eventItem: EventItem }) => {
             <p className="text-h3 text-black/50">Total Price</p>
             <p className="text-primary text-h1 font-bold">0.1 SOL</p>
           </div>
-          <Button className="px-12 md:px-16" onClick={() => setModalOpen(true)}>
+          <Button
+            className="px-12 md:px-16"
+            disabled={selectedShowId === null}
+            onClick={() => setModalOpen(true)}
+          >
             Pay
           </Button>
         </div>

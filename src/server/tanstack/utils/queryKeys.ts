@@ -1,1 +1,4 @@
-export const QueryKeys = {};
+export const QueryKeys = {
+  EVENTS: ["events"],
+  SHOWS: ["shows"],
+};

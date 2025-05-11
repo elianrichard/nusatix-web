@@ -5,6 +5,16 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        hostname: "nusatix.elianrichard.my.id",
+        protocol: "https",
+        port: "",
+      },
+    ],
+  },
+};
 
 export default config;
