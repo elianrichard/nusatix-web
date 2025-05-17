@@ -16,10 +16,10 @@ To empower tourism, preserve heritage, and celebrate the diversity of Indonesia 
 ## 🛠️ Tech Stack
 
 - **Blockchain**: Solana
-- **Smart Contracts**: tolong isi ya @elian
+- **Smart Contracts**: Metaplex Token Metadata Program (via Metaplex JS SDK)
 - **Frontend**: Next.js
-- **Wallet Integration**: tolong isi ya @elian
-- **NFT Metadata Storage**: tolong isi ya @elian
+- **Wallet Integration**: Solana Wallet Adapter (example: Phantom, Solflare, etc.)
+- **NFT Metadata Storage**: IPFS (via Pinata)
 
 ## 🚀 How It Works
 
