@@ -1,15 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
 
 import Button from "@/components/Button";
 import EmptyState from "@/components/EmptyState";
 import MainLayout from "@/components/MainLayout";
 import Modal from "@/components/Modal";
+import { getTicketsQueryOptions } from "@/server/tanstack/hooks/tickets";
+import useWeb3Store from "@/store/useWeb3Store";
 
 import NFTCard from "./_components/NFTCard";
-import { nftData } from "./_static/dummy";
+// import { nftData } from "./_static/dummy";s
 import type { NFTCardProps } from "./_static/types";
 
 export default function MyNFT() {
@@ -20,6 +23,26 @@ export default function MyNFT() {
     setSelectedNFT(nft);
     setModalOpen(true);
   };
+
+  const userAddress = useWeb3Store((state) => state.account);
+  const { data: tickets } = useQuery(
+    getTicketsQueryOptions(userAddress?.address ?? ""),
+  );
+
+  const nftData: NFTCardProps[] = useMemo(() => {
+    return (
+      tickets?.map((ticket) => ({
+        id: ticket.ticket_id.toString(),
+        title: `#${ticket.nft_name.split("#")[1]}`,
+        image: ticket.nft_image_url ?? "",
+        description: ticket.event_name ?? "",
+        date: ticket.show_date.toString() ?? "",
+        nft:
+          ticket.nft_image_url ??
+          "https://nusatix.elianrichard.my.id/nfts/5.png",
+      })) ?? []
+    );
+  }, [tickets]);
 
   return (
     <MainLayout isAddTopPadding>

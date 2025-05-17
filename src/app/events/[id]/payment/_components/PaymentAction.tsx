@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -8,9 +8,14 @@ import NusatixLogo from "@/assets/svgs/brand/NusatixLogo";
 
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
-
 import { getShowsByEventIdQueryOption } from "@/server/tanstack/hooks/shows";
+import {
+  useMintTicketMutation,
+  usePrepareTicketMutation,
+} from "@/server/tanstack/hooks/tickets";
+
 import { NavigationRoutes } from "@/static/constants/navigation";
+import useWeb3Store from "@/store/useWeb3Store";
 
 import { parseDate } from "@/utils/datetime";
 
@@ -23,8 +28,33 @@ const PaymentAction = ({ id }: { id: string }) => {
     getShowsByEventIdQueryOption(id),
   );
 
+  const web3Account = useWeb3Store((state) => state.account);
+
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
+
+  const { mutate: prepareMutate, isPending: isPreparePending } =
+    usePrepareTicketMutation({
+      onSuccess: (response) => {
+        if (response?.ticket_id && web3Account?.address) {
+          mintMutate({
+            ticket_id: response.ticket_id,
+            user_wallet_address: web3Account.address,
+          });
+        }
+      },
+    });
+  const { mutate: mintMutate, isPending: isMintPending } =
+    useMintTicketMutation({
+      onSuccess: () => {
+        setModalOpen(true);
+      },
+    });
+
+  const handleBuyTicket = useCallback(() => {
+    if (web3Account?.address && selectedShowId)
+      prepareMutate(selectedShowId.toString());
+  }, [prepareMutate, selectedShowId, web3Account?.address]);
 
   if (isShowsPending || !shows) return null;
   return (
@@ -57,9 +87,9 @@ const PaymentAction = ({ id }: { id: string }) => {
           <Button
             className="px-12 md:px-16"
             disabled={selectedShowId === null}
-            onClick={() => setModalOpen(true)}
+            onClick={handleBuyTicket}
           >
-            Pay
+            {isMintPending || isPreparePending ? "Minting..." : "Pay"}
           </Button>
         </div>
       </div>

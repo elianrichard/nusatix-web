@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 import NusatixLogoFull from "@/assets/svgs/brand/NusatixLogoFull";
 
-import Button from "@/components/Button";
 import HamburgerIcon from "@/components/HamburgerIcon";
 import MainLayout from "@/components/MainLayout";
 
@@ -13,6 +12,7 @@ import { NavigationRoutes } from "@/static/constants/navigation";
 
 import { cn } from "@/utils/ui";
 
+import ConnectButton from "./ConnectButton";
 import { NavLinks } from "../_static/constants";
 
 const Nav = () => {
@@ -38,7 +38,7 @@ const Nav = () => {
               />
             ))}
           </ul>
-          <Button className="hidden md:block">Connect Wallet</Button>
+          <ConnectButton />
           <button
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Click here to open menu navigation bar"
@@ -69,7 +69,7 @@ const Nav = () => {
               ))}
             </ul>
             <div className="flex justify-center">
-              <Button className="block md:hidden">Connect Wallet</Button>
+              <ConnectButton />
             </div>
           </div>
         </MainLayout>
