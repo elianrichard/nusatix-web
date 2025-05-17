@@ -36,12 +36,12 @@ export const FooterLinks: TNavigationLinks = [
 export const SocialMediaLinks = [
   {
     name: "Twitter / X",
-    href: "https://twitter.com/Nusatix",
+    href: "https://twitter.com/nusatixbynewtn",
     icon: <TwitterLogo className="h-full w-full" />,
   },
   {
     name: "Instagram",
-    href: "https://instagram.com/Nusatix",
+    href: "https://instagram.com/nusatix.bynewtn",
     icon: <InstagramLogo className="h-full w-full" />,
   },
 ];
