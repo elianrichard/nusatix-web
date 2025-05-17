@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import MainLayout from "@/components/MainLayout";
+import Link from "next/link";
 
 const TopSection = () => {
   return (
@@ -21,7 +22,9 @@ const TopSection = () => {
           to real-world moments. With Nusatix, you don&apos;t just visit — you
           belong.
         </p>
-        <Button variant="secondary">Join Our Community</Button>
+        <Link href="https://x.com/nusatixbynewtn" target="_blank" rel="noopener noreferrer">
+          <Button variant="secondary">Join Our Community</Button>
+        </Link>
       </div>
     </MainLayout>
   );
