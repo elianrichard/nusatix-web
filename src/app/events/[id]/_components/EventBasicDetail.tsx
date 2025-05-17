@@ -8,6 +8,7 @@ import { MarkerIcon, QuarterIcon, CalendarIcon } from "@/assets/svgs/icons";
 
 import Button from "@/components/Button";
 
+import { getSolanaIdrConversionRateQueryOption } from "@/server/tanstack/hooks/coins";
 import { getEventByIdQueryOption } from "@/server/tanstack/hooks/events";
 import { NavigationRoutes } from "@/static/constants/navigation";
 
@@ -24,7 +25,11 @@ const EventBasicD = ({ id, isPaymentPage }: EventDetailProps) => {
   const { data: event, isPending: isEventPending } = useQuery(
     getEventByIdQueryOption(id),
   );
-  if (!event || isEventPending) return null;
+  const { data: conversionRate, isPending: isConversionRatePending } = useQuery(
+    getSolanaIdrConversionRateQueryOption(),
+  );
+  if (!event || isEventPending || isConversionRatePending || !conversionRate)
+    return null;
   const {
     event_id,
     event_name,
@@ -40,7 +45,10 @@ const EventBasicD = ({ id, isPaymentPage }: EventDetailProps) => {
     <div className="flex flex-col gap-6 md:gap-10">
       <div className="relative aspect-[3/2] w-full sm:aspect-[2/1]">
         <Image
-          src={event_image_url ?? ""}
+          src={
+            event_image_url ??
+            "https://nusatix.elianrichard.my.id/event-images/EventImage4.webp"
+          }
           alt={event_name}
           fill
           className="h-full w-full rounded-2xl object-cover"
@@ -96,7 +104,10 @@ const EventBasicD = ({ id, isPaymentPage }: EventDetailProps) => {
           <div className="flex flex-col gap-1">
             <p className="text-p text-black/50">Realtime in IDR</p>
             <p className="text-p font-bold text-black">
-              {convertNumberToIdr(200000)}
+              {convertNumberToIdr(
+                roundToDecimal(Number(default_sol_price)) *
+                  Number(conversionRate.solana.idr),
+              )}
             </p>
           </div>
         </div>

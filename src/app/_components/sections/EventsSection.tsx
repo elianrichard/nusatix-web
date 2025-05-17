@@ -73,6 +73,7 @@ const EventCard = ({
   event_overall_start_time,
   default_sol_price,
   venue_address,
+  event_type,
 }: events) => (
   <Link
     href={`${NavigationRoutes.EVENTS}/${event_id}`}
@@ -80,7 +81,10 @@ const EventCard = ({
   >
     <div className="relative aspect-[3/2] w-full md:aspect-video">
       <Image
-        src={event_image_url ?? ""}
+        src={
+          event_image_url ??
+          "https://nusatix.elianrichard.my.id/event-images/EventImage4.webp"
+        }
         alt={"event"}
         fill
         className="h-full w-full object-cover"
@@ -88,7 +92,7 @@ const EventCard = ({
     </div>
     <div className="flex h-full flex-col gap-4 p-4 md:p-8">
       <div className="flex flex-col gap-1 md:gap-2">
-        <p className="text-p text-primary font-bold">{"Local Tourism"}</p>
+        <p className="text-p text-primary font-bold">{event_type}</p>
         <p className="text-h2 font-bold">{event_name}</p>
       </div>
       <div className="flex flex-1 flex-col justify-between gap-4">
