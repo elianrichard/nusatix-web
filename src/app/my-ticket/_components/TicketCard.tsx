@@ -1,6 +1,8 @@
+import dayjs from "dayjs";
 import { QrIcon } from "@/assets/svgs/icons";
 
 export type TicketType = {
+  id: string;
   title: string;
   location: string;
   date: string;
@@ -27,7 +29,7 @@ export default function TicketCard({ type, onClick }: Props) {
           </h2>
         </div>
         <p className="group-hover:text-primary text-h3 text-white transition-colors duration-200 ease-out">
-          {type.date}
+          {dayjs(type.date).format("DD MMMM YYYY")}
         </p>
       </div>
 

@@ -70,7 +70,8 @@ export const getWeb3Balance = async () => {
 
 export const getWeb3Account = async (): Promise<TWeb3Account | null> => {
   const balance = await getWeb3Balance();
-  const address = await getWeb3Address();
+  const address = "J8n7w2dsYuCeXGgxUj4Tg6AWdigGKXEzSyHmRGaC9woA";
+  // const address = await getWeb3Address();
   await requestEthereumChainSwitch();
   if (!address || !balance) return null;
   return { address, balance };
