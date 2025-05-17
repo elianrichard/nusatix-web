@@ -24,7 +24,8 @@ const TopSection = () => {
         </p>
         <Link href="https://x.com/nusatixbynewtn" target="_blank" rel="noopener noreferrer">
           <Button variant="secondary">Join Our Community</Button>
-        </Link>      </div>
+        </Link>
+      </div>
     </MainLayout>
   );
 };
